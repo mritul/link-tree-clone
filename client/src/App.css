@@ -35,4 +35,6 @@ main {
   min-height: 85vh;
   display: flex;
   padding: 1rem;
+  align-items: center;
+  justify-content: center;
 }

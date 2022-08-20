@@ -1,0 +1,13 @@
+.Dashboard {
+  margin: 2rem auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+.Dashboard > h1 {
+  margin-bottom: 2rem;
+  color: var(--brand);
+}

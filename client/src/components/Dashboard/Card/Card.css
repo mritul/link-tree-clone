@@ -1,0 +1,49 @@
+.Card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 350px;
+  background-color: rgb(242, 242, 242);
+  border-radius: 5px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.Card > div:not(.details) {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-panel {
+  gap: 2rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.details .title {
+  font-size: 1.5rem;
+}
+
+.btn-delete {
+  font-size: 1.5rem;
+  color: red;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.btn-drag {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: grey;
+  cursor: pointer;
+}

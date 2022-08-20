@@ -1,0 +1,50 @@
+.AddLink {
+  width: 300px;
+  border: 1px solid grey;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.AddLink > h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.AddLink form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-add {
+  padding: 0.5rem;
+  background-color: var(--brand);
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1rem;
+  width: 60%;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AddLink input {
+  height: 40px;
+  width: 100%;
+  font-size: 1rem;
+  padding: 1rem;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.AddLink input:focus {
+  border: 1px solid var(--brand);
+}

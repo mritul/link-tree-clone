@@ -1,7 +1,8 @@
+import axios from "axios";
 import React, { useState } from "react";
 import "./AddLink.css";
 
-const AddLink = () => {
+const AddLink = ({ setLinks }) => {
   const [title, setTitle] = useState("");
   const [link, setLink] = useState("");
 
@@ -13,9 +14,24 @@ const AddLink = () => {
     setLink(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // TODO
+    const response = await axios({
+      method: "POST",
+      url: `${process.env.REACT_APP_BACKEND_URL}/api/add-link`,
+      data: {
+        title: title,
+        url: link,
+        active: true,
+      },
+      withCredentials: true,
+    });
+
+    console.log(response);
+    setLinks(response.data);
+    setTitle("");
+    setLink("");
   };
   return (
     <div className="AddLink">

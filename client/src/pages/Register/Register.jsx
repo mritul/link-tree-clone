@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
@@ -21,9 +22,24 @@ const Register = () => {
   };
 
   //Function to handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO
+    setRegisterUsername("");
+    setRegisterPassword("");
+    try {
+      const response = await axios({
+        method: "POST",
+        url: `${process.env.REACT_APP_BACKEND_URL}/register`,
+        data: {
+          username: registerUsername,
+          password: registerPassword,
+        },
+        withCredentials: true,
+      });
+      console.log(response);
+    } catch (err) {
+      throw err;
+    }
   };
   return (
     <div className="Register">

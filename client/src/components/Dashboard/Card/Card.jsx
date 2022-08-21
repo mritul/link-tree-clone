@@ -2,12 +2,27 @@ import React from "react";
 import "./Card.css";
 import Switch from "react-switch";
 import { useState } from "react";
+import axios from "axios";
 
-const Card = ({ title, url, checked }) => {
+const Card = ({ title, url, active, linkId }) => {
   // For the toggle switch
-  const [isChecked, setIsChecked] = useState(checked);
-  const handleChange = () => {
-    setIsChecked(!isChecked);
+  const [isChecked, setIsChecked] = useState(active);
+  const handleChange = async () => {
+    try {
+      setIsChecked(!isChecked);
+      const response = await axios({
+        method: "PUT",
+        url: `${process.env.REACT_APP_BACKEND_URL}/api/update-link-status/${linkId}`,
+        data: {
+          title: title,
+          url: url,
+          active: isChecked,
+        },
+        withCredentials: true,
+      });
+    } catch (err) {
+      throw err;
+    }
   };
   return (
     <div className="Card">

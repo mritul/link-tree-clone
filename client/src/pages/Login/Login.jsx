@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../utils/AuthContext";
 const Login = () => {
+  const navigate = useNavigate();
+  const auth = useAuth();
   // useState hooks for handling input fields
   //Login form
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
+
+  // useEffect to redirect if logged in
+  useEffect(() => {
+    if (auth.user) {
+      navigate("/admin");
+    }
+  }, [auth.user]);
 
   // Handling Input fields
   const handleUsernameInput = (e) => {
@@ -16,9 +26,9 @@ const Login = () => {
   };
 
   // Handling form submit
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO
+    auth.login(loginUsername, loginPassword);
   };
   return (
     <div className="Login">

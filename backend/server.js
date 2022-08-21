@@ -1,14 +1,12 @@
-const app = require("express")();
+const express = require("express");
+const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const passport = require("passport");
+const cors = require("cors");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
 dotenv.config();
-
-mongoose.connect(process.env.MONGO_URI, () => {
-  app.listen(process.env.PORT, () => {
-    console.log("Server up and running");
-  });
-});
 
 //<-------------------MIDDLEWARE STARTS----------------->
 app.use(express.json());
@@ -35,3 +33,10 @@ app.use("/", require("./routes/base"));
 app.use("/api", require("./routes/api"));
 
 //<-------------------MIDDLEWARE ENDS----------------->
+
+mongoose.connect(process.env.MONGO_URI, () => {
+  console.log("Database successfully connected");
+  app.listen(process.env.PORT, () => {
+    console.log("Server up and running");
+  });
+});

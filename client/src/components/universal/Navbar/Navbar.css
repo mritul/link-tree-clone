@@ -69,7 +69,7 @@
 
 .btn-login:hover,
 .btn-search-nav:hover {
-  background-color: rgb(254, 126, 103);
-  border-color: rgb(254, 126, 103);
+  background-color: var(--brand);
+  border-color: var(--brand);
   transition: 0.3s ease;
 }
